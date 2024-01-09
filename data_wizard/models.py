@@ -18,8 +18,7 @@ class Run(models.Model):
         blank=True)
     serializer = models.CharField(max_length=255, null=True, blank=True)
 
-    content_type = models.ForeignKey(_('Content Type'),
-        ContentType, null=True, blank=True, on_delete=models.PROTECT,
+    content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.PROTECT,
     )
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey()
