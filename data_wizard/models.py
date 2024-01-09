@@ -292,8 +292,7 @@ class Range(models.Model):
 
 class Record(models.Model):
     run = models.ForeignKey(Run, on_delete=models.CASCADE)
-    content_type = models.ForeignKey(_('Content Type'),
-        ContentType, null=True, blank=True, on_delete=models.PROTECT
+    content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.PROTECT
     )
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey(_('Content Object'),)
