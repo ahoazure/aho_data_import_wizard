@@ -238,7 +238,7 @@ class Range(models.Model):
         ('data', 'Cell value'),
     )
     run = models.ForeignKey(Run, on_delete=models.CASCADE)
-    identifier = models.ForeignKey(_('Identifier'), Identifier, on_delete=models.PROTECT)
+    identifier = models.ForeignKey(Identifier, on_delete=models.PROTECT)
     type = models.CharField(_('Type'), max_length=10, choices=RANGE_TYPES)
 
     header_col = models.IntegerField(_('Header Column'),)
