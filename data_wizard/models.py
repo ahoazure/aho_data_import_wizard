@@ -114,7 +114,7 @@ class Run(models.Model):
 
 
 class RunLog(models.Model):
-    run = models.ForeignKey(_('Run'), Run, related_name='log', on_delete=models.CASCADE)
+    run = models.ForeignKey(Run, related_name='log', on_delete=models.CASCADE)
     event = models.CharField(_('Event'), max_length=100)
     date = models.DateTimeField(_('Date'), auto_now_add=True)
 
@@ -237,7 +237,7 @@ class Range(models.Model):
         ('value', 'Header metadata'),
         ('data', 'Cell value'),
     )
-    run = models.ForeignKey(_('Run'), Run, on_delete=models.CASCADE)
+    run = models.ForeignKey(Run, on_delete=models.CASCADE)
     identifier = models.ForeignKey(_('Identifier'), Identifier, on_delete=models.PROTECT)
     type = models.CharField(_('Type'), max_length=10, choices=RANGE_TYPES)
 
@@ -291,7 +291,7 @@ class Range(models.Model):
 
 
 class Record(models.Model):
-    run = models.ForeignKey(_('Run'),Run, on_delete=models.CASCADE)
+    run = models.ForeignKey(Run, on_delete=models.CASCADE)
     content_type = models.ForeignKey(_('Content Type'),
         ContentType, null=True, blank=True, on_delete=models.PROTECT
     )
