@@ -295,7 +295,7 @@ class Record(models.Model):
     content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.PROTECT
     )
     object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = GenericForeignKey(_('Content Object'),)
+    content_object = GenericForeignKey()
 
     row = models.PositiveIntegerField(_('Row'),)
     success = models.BooleanField(_('Success'),default=True)
